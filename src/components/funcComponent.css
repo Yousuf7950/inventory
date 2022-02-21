@@ -1,5 +1,39 @@
 #multiselectContainerReact {
-    width: 60%;
-    margin-left:50px;
-    float: none;
+  width: 60%;
+  margin-left: 50px;
+  float: none;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+
+  /* border: 1px solid black; */
+}
+
+.f1 {
+  /* background-color: #f1f1f1; */
+
+  flex: 2;
+  /* border: 1px solid black; */
+}
+
+.f2 {
+  /* background-color: dodgerblue; */
+
+  flex: 1;
+  /* border: 1px solid black; */
+}
+.f3 {
+  /* background-color: #f1f1f1; */
+
+  flex: 1;
+  /* border: 1px solid black; */
+}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
   }
+}

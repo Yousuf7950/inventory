@@ -394,3 +394,133 @@ export default class AddInventory extends Component {
 //     }
 
 // }
+
+// import React,{useState} from 'react';
+// import './dashboard.css';
+// import Modal from 'react-bootstrap/Modal';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import Button from 'react-bootstrap/Button';
+// import Form from 'react-bootstrap/Form';
+// import { MultiSelect } from "react-multi-select-component";
+// import { useNavigate } from 'react-router-dom';
+// import MyMeet from '../MyMeet/Mymeet';
+// const Dashboard = () => {
+//   let navigate = useNavigate();
+
+//   const [main,setMain]=useState({
+//     title:'',
+//     Mdate:'' ,
+//     Mtime:'',
+//     options :[
+//       { label: "Aebad ul quadir", value: "Aebad" },
+//       { label: "Muhammad Yousuf", value: "yousuf" },
+//       { label: "Muhamamd daniyal", value: "daniyal"},
+//       { label: "Abdullah Raheel", value: "abdullah"},
+//     ],
+//     Mdes:''
+// })
+// const handleChange=e=>{
+//   const {name,value}=e.target
+//   setMain({
+//       ...main,
+//       [name]:value
+//   })
+// }
+// const submitting = ()=>{
+
+//   const {...x} = selected;
+
+//   const {title,Mdate,Mtime,Mdes}=main
+
+//   if(title )
+//  {
+//   console.log(title,Mdate,Mtime,Mdes,)
+//   selected.map((a)=>{
+//     console.log(a.label)
+//   })
+//   //  console.log(Mtime)
+//   // axios.post("http://localhost:9002/register",user)
+//   // .then(res=>alert(res.data.message))
+//   // history.push("/login")
+//   navigate('/MyMeet');
+//  }
+//  else{
+//      alert("invalid input")
+//  }
+// }
+//   const [show, setShow] = useState(false );
+//   const handleClose = () => setShow(false);
+//   const handleShow = () => setShow(true);
+
+//   const [selected, setSelected] = useState([]);
+//   return (
+//     <>
+//        <Button variant="primary" onClick={handleShow}>
+//         New Meet
+//       </Button>
+
+//       <Modal
+
+//         show={show}
+//         onHide={handleClose}
+//         backdrop="static"
+//         keyboard={false}
+
+//       >
+//         <Modal.Header closeButton style={{padding:'2%'}}>
+
+//         </Modal.Header>
+//         <div style={{marginBottom:'0%',paddingBottom:'0%',padding:'4%'}}>
+//         <span style={{color:'#0e7a57',fontWeight:'bold',fontSize:'30px',marginBottom:'0%',paddingBottom:'0%'}}>New Meet<br/></span>
+//         <p style={{fontSize:'16px',color:'#bdbdbd',marginBottom:'0%',paddingBottom:'0%',fontWeight:'0px'}}>Record meeting logs with just a click.</p>
+//         </div>
+
+//         <Modal.Body >
+//       <Form>
+//         <Form.Group className="mb-3" >
+//           <Form.Label >Enter Title</Form.Label>
+//           <Form.Control type="text" placeholder="Enter Meeting Title" name='title' value={main.title} onChange={handleChange}/>
+//         </Form.Group>
+
+//         <Form.Group className="mb-3" >
+//           <Form.Label>Enter Date</Form.Label>
+//           <Form.Control type="date" name='Mdate' value={main.Mdate} onChange={handleChange}/>
+//         </Form.Group>
+
+//         <Form.Group className="mb-3" >
+//           <Form.Label>Enter Time</Form.Label>
+//           <Form.Control type="time" name='Mtime' value={main.Mtime} onChange={handleChange} />
+//         </Form.Group>
+
+//          {/* https://www.npmjs.com/package/react-multi-select-component */}
+//         <pre>{JSON.stringify(selected)}</pre>
+
+//         <Form.Label>Enter Attendees</Form.Label>
+//       <MultiSelect
+//         options={main.options}
+//           options={main.options}
+//         value={selected}
+//         onChange={setSelected}
+//         labelledBy="Select"
+//       />
+
+//       <Form.Group className="mb-3" >
+//           <Form.Label>Enter Description</Form.Label>
+//           <Form.Control type="email" placeholder="Enter Description"  name='Mdes' value={main.Mdes} onChange={handleChange}/>
+//         </Form.Group>
+//       </Form>
+//         </Modal.Body>
+
+//         <Modal.Footer>
+//         <Button style={{background:'#0e7a57',borderRadius:'5',border:'0'}} onClick={submitting}>Create Meet</Button>
+//           <Button style={{background:'#c21d2e',borderRadius:'5',border:'0'}} onClick={handleClose}>
+//             Close
+//           </Button>
+
+//         </Modal.Footer>
+//       </Modal>
+//     </>
+//   )
+// }
+
+// export default Dashboard;
