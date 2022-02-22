@@ -7,9 +7,14 @@ import MainCam from "./mainCam";
 import { AiFillCamera, AiOutlineCamera } from "react-icons/ai";
 import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import MainInventory from "./mainInventory";
 
-export default function AddProduct() {
+export default function AddProduct(props) {
   let navigate = useNavigate();
+  const routeChange = () => {
+    let path = "/";
+    navigate(path);
+  };
   const [count, setCount] = useState(0);
   const [selected, setSelected] = useState();
   const [selectedItems, setSelectedItems] = useState();
@@ -35,9 +40,9 @@ export default function AddProduct() {
     event.preventDefault();
 
     const newProduct = {
-      inventory_category: formData.current.inventory_category.value,
-      date: formData.current.Mdate.value,
-      time: formData.current.Mtime.value,
+      // inventory_category: formData.current.inventory_category.value,
+      // date: formData.current.Mdate.value,
+      // time: formData.current.Mtime.value,
       // product_name: formData.current.product_name.value,
       product_name: selectedItems.value,
       location: selected.value,
@@ -67,15 +72,18 @@ export default function AddProduct() {
   };
   return (
     <div>
+      <p>Inventory category: {props.inventoryCatogery}</p>
+      <p>Date: {props.date}</p>
+      <p>Time: {props.time}</p>
       <Form onSubmit={add} ref={formData}>
-        <Form.Group controlId="formBasicInventoryCategory">
+        {/* <Form.Group controlId="formBasicInventoryCategory">
           <Form.Label>Inventory Category</Form.Label>
           <Form.Control
             type="text"
-            placeholder="Enter Product Name"
+            placeholder="Enter category name"
             name="inventory_category"
           />
-        </Form.Group>
+        </Form.Group> */}
         <p
           style={{
             marginLeft: "3%",
@@ -88,7 +96,7 @@ export default function AddProduct() {
           Items entered : {count}
         </p>
         {/* date  */}
-        <Form.Group
+        {/* <Form.Group
           className="mb-3"
           style={{ display: "flex", marginTop: "10px" }}
         >
@@ -106,10 +114,10 @@ export default function AddProduct() {
             type="date"
             name="Mdate"
             style={{ width: "25%", marginLeft: "50px" }}
-          />
+          /> */}
 
-          {/* time */}
-          <Form.Label
+        {/* time */}
+        {/* <Form.Label
             style={{
               marginLeft: "3%",
               paddingLeft: "0%",
@@ -124,13 +132,13 @@ export default function AddProduct() {
             name="Mtime"
             style={{ width: "10%", marginLeft: "50px" }}
           />
-        </Form.Group>
+        </Form.Group> */}
         {/* Item */}
 
         {/* location */}
 
         {/* quantity */}
-        <div class="flex-container">
+        <div className="flex-container">
           {/* <Form.Label style={{ textAlign: "left" }}>Quantity:</Form.Label>   */}
           <div className="f1">
             <div style={{ display: "flex", marginTop: "10px" }}>
@@ -240,6 +248,7 @@ export default function AddProduct() {
             name="description"
           />
         </Form.Group>
+
         <Button
           variant="primary"
           type="submit"
@@ -247,6 +256,14 @@ export default function AddProduct() {
           style={{ margin: "20px" }}
         >
           Add to Inventory
+        </Button>
+        <Button
+          variant="danger"
+          type="submit"
+          onClick={routeChange}
+          style={{ margin: "20px" }}
+        >
+          Close & Save Inventory
         </Button>
       </Form>
       <Table striped bordered hover variant="dark">
@@ -268,9 +285,12 @@ export default function AddProduct() {
             return (
               <tr key={index}>
                 <td>{index}</td>
-                <td>{item.inventory_category}</td>
+                {/* <td>{item.inventory_category}</td>
                 <td>{item.date}</td>
-                <td>{item.time}</td>
+                <td>{item.time}</td> */}
+                <td>{props.inventoryCatogery}</td>
+                <td>{props.date}</td>
+                <td>{props.time}</td>
                 <td>{item.product_name}</td>
                 <td>{item.location}</td>
                 <td>{item.qty}</td>

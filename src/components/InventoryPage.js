@@ -2,7 +2,8 @@ import React from "react";
 import AddProduct from "./funcComponent";
 import { Header } from "./Header";
 import Sidebar from "./Sidebar";
-const PArent = () => {
+
+const InventoryPage = () => {
   return (
     <>
       <div className="App" id="outer-container">
@@ -22,4 +23,4 @@ const PArent = () => {
   );
 };
 
-export default PArent;
+export default InventoryPage;
